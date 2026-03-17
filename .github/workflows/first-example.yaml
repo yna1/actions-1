@@ -18,5 +18,3 @@ jobs:
             - name: Read file
               run: cat README.md 
 
-            - name: Generte ASCII Artwork
-              run: cowsay -f dragon "Run for cover, I am a DRAGON...RAWE" >> dragon.txt
