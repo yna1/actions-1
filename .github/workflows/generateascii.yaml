@@ -12,13 +12,21 @@ jobs:
     - name: Run dragon
       run: cowsay -f dragon "Run for cover, I am a Dragon...RAWR" >> dragon.txt
 
-    - name: Sleep for 10 seconds
-      run: sleep 10
+    - name: upload Dragon-text-file
+      uses: actions/upload-artifactory@v3
+      with:
+        name: dragon-text-file
+        path: dragon.txt
 
   build_job_2:
     needs: build_job_1
     runs-on: ubuntu-latest
     steps:
+    - name: Download Dragon-text-file
+      uses: actions/download-artifactory@v3
+      with:
+        name: dragon-text-file
+
     - name: Sleep for 10 seconds
       run: sleep 10
 
@@ -29,8 +37,14 @@ jobs:
     needs: build_job_2
     runs-on: ubuntu-latest
     steps:
+    - name: Download Dragon-text-file
+      uses: actions/download-artifactory@v3
+      with:
+        name: dragon-text-file
+
     - name: Read file
       run: cat dragon.txt
+      
     - name: Deploying
       run: echo "deploying"
 
