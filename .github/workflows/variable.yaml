@@ -1,7 +1,8 @@
 name:   Working with variables
 
 on:
-    push
+    workflow_dispatch
+
 env:
     IMAGE_NAME: github-action-nginx
     CONTAINER_REGISTRY: docker.io
