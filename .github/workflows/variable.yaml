@@ -1,7 +1,8 @@
 name:   Working with variables
 
 on:
-    workflow_dispatch
+    workflow_dispatch:
+    push:
 
 env:
     IMAGE_NAME: github-action-nginx
